@@ -1,8 +1,8 @@
 import { useLocalSearchParams } from 'expo-router';
 import { useContext } from 'react';
 import { Button, Image, StyleSheet, Text, View } from 'react-native';
-import { FavoritesContext } from './context/FavouritesContext';
-import { exercises } from './data/exercises';
+import { FavoritesContext } from '../../context/FavouritesContext';
+import { exercises } from '../../data/exercises';
 
 export default function ExerciseDetailScreen() {
   const { id } = useLocalSearchParams();

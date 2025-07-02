@@ -1,8 +1,8 @@
 import { router } from 'expo-router';
 import { useContext } from 'react';
 import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { FavoritesContext } from './context/FavouritesContext';
-import { exercises } from './data/exercises';
+import { FavoritesContext } from '../context/FavouritesContext';
+import { exercises } from '../data/exercises';
 
 export default function FavoritesScreen() {
   const { favorites } = useContext(FavoritesContext);

@@ -1,0 +1,51 @@
+//baza cwiczen
+export const exercises = [
+  {
+    id: '1',
+    name: 'Wyciskanie sztangi na ławce',
+    description: 'Ćwiczenie klatki piersiowej i tricepsów.',
+    series: '4 serie po 8–12 powtórzeń',
+    image: 'https://www.bodybuilding.com/images/2020/january/bench-press-header-960x540.jpg',
+    gif: 'https://media.giphy.com/media/3oKIPwoeGErMmaI43C/giphy.gif',
+  },
+  {
+    id: '2',
+    name: 'Martwy ciąg',
+    description: 'Ćwiczenie pleców, nóg i pośladków.',
+    series: '4 serie po 6–10 powtórzeń',
+    image: 'https://www.bodybuilding.com/images/2020/january/deadlift-header-960x540.jpg',
+    gif: 'https://media.giphy.com/media/ZcLLRKYgHlfqK/giphy.gif',
+  },
+  {
+    id: '3',
+    name: 'Przysiady ze sztangą',
+    description: 'Ćwiczenie nóg, pośladków i core.',
+    series: '4 serie po 8–12 powtórzeń',
+    image: 'https://www.bodybuilding.com/images/2020/january/squat-header-960x540.jpg',
+    gif: 'https://media.giphy.com/media/IuXlSa8nSfnG8/giphy.gif',
+  },
+  {
+    id: '4',
+    name: 'Podciąganie na drążku',
+    description: 'Ćwiczenie pleców i bicepsów.',
+    series: '3 serie maksymalna liczba powtórzeń',
+    image: 'https://www.bodybuilding.com/images/2020/january/pullups-header-960x540.jpg',
+    gif: 'https://media.giphy.com/media/B5nXmWgfsHuSY/giphy.gif',
+  },
+  {
+    id: '5',
+    name: 'Uginanie ramion ze sztangą',
+    description: 'Izolacja bicepsów.',
+    series: '4 serie po 10–15 powtórzeń',
+    image: 'https://www.bodybuilding.com/images/2020/january/barbell-curl-header-960x540.jpg',
+    gif: 'https://media.giphy.com/media/l0HlPjezef7TZrKPe/giphy.gif',
+  },
+  {
+    id: '6',
+    name: 'Wyciskanie żołnierskie',
+    description: 'Ćwiczenie barków i tricepsów.',
+    series: '4 serie po 8–12 powtórzeń',
+    image: 'https://www.bodybuilding.com/images/2020/january/shoulder-press-header-960x540.jpg',
+    gif: 'https://media.giphy.com/media/3ohs7YsFje1f4FfRu0/giphy.gif',
+  },
+];
