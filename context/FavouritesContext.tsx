@@ -1,33 +1,38 @@
-//przechowywanie ulubionych
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import React, { createContext, ReactNode, useEffect, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 
-type Favs = { favorites: string[], addFavorite: (id: string) => void, removeFavorite: (id: string) => void };
-
-export const FavoritesContext = createContext<Favs>({
-  favorites: [], addFavorite: ()=>{}, removeFavorite: ()=>{}
+export const FavoritesContext = createContext({
+  favorites: [] as string[],
+  addFavorite: (id: string) => {},
+  removeFavorite: (id: string) => {},
 });
 
-export const FavoritesProvider = ({ children }: { children: ReactNode }) => {
+export const FavoritesProvider = ({ children }: { children: React.ReactNode }) => {
   const [favorites, setFavorites] = useState<string[]>([]);
 
   useEffect(() => {
-    AsyncStorage.getItem('favorites').then(data => {
-      if (data) setFavorites(JSON.parse(data));
-    });
+    const loadFavorites = async () => {
+      const stored = await AsyncStorage.getItem('favorites');
+      if (stored) setFavorites(JSON.parse(stored));
+    };
+    loadFavorites();
   }, []);
 
-  const persist = (newFavs: string[]) => {
+  const saveFavorites = async (newFavs: string[]) => {
     setFavorites(newFavs);
-    AsyncStorage.setItem('favorites', JSON.stringify(newFavs));
+    await AsyncStorage.setItem('favorites', JSON.stringify(newFavs));
   };
 
   const addFavorite = (id: string) => {
-    if (!favorites.includes(id)) persist([...favorites, id]);
+    if (!favorites.includes(id)) {
+      const updated = [...favorites, id];
+      saveFavorites(updated);
+    }
   };
 
   const removeFavorite = (id: string) => {
-    persist(favorites.filter(f => f !== id));
+    const updated = favorites.filter((fav) => fav !== id);
+    saveFavorites(updated);
   };
 
   return (

@@ -1,5 +1,10 @@
 import { Slot } from 'expo-router';
+import { FavoritesProvider } from '../context/FavouritesContext';
 
-export default function RootLayout() {
-  return <Slot />;
+export default function Layout() {
+  return (
+    <FavoritesProvider>
+      <Slot />
+    </FavoritesProvider>
+  );
 }

@@ -1,41 +1,47 @@
 import { router } from 'expo-router';
 import { useContext } from 'react';
-import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { FlatList, Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import { FavoritesContext } from '../context/FavouritesContext';
 import { exercises } from '../data/exercises';
 
 export default function FavoritesScreen() {
   const { favorites } = useContext(FavoritesContext);
+
   const favoriteExercises = exercises.filter((ex) => favorites.includes(ex.id));
+
+  if (favoriteExercises.length === 0) {
+    return (
+      <View style={styles.container}>
+        <Text>Brak ulubionych ćwiczeń</Text>
+      </View>
+    );
+  }
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Ulubione ćwiczenia</Text>
-      {favoriteExercises.length === 0 ? (
-        <Text>Brak ulubionych ćwiczeń</Text>
-      ) : (
-        <FlatList
-          data={favoriteExercises}
-          keyExtractor={(item) => item.id}
-          renderItem={({ item }) => (
-            <TouchableOpacity
-              style={styles.card}
-              onPress={() => router.push(`../exercises/${item.id}`)}
-            >
-              <Image source={{ uri: item.image }} style={styles.image} />
-              <Text style={styles.name}>{item.name}</Text>
-            </TouchableOpacity>
-          )}
-        />
-      )}
+      <FlatList
+        data={favoriteExercises}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => (
+          <Pressable style={styles.card} onPress={() => router.push(`./exercise/${item.id}`)}>
+            <Image source={{ uri: item.image }} style={styles.image} />
+            <Text style={styles.name}>{item.name}</Text>
+          </Pressable>
+        )}
+      />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: { flex: 1, padding: 16 },
-  title: { fontSize: 24, marginBottom: 16, textAlign: 'center' },
-  card: { flexDirection: 'row', alignItems: 'center', marginBottom: 12 },
-  image: { width: 60, height: 60, marginRight: 12 },
+  card: {
+    padding: 12,
+    backgroundColor: '#eee',
+    borderRadius: 8,
+    marginBottom: 12,
+    alignItems: 'center',
+  },
+  image: { width: 200, height: 120, borderRadius: 6, marginBottom: 6 },
   name: { fontSize: 18 },
 });

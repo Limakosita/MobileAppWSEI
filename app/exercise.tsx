@@ -1,3 +1,4 @@
+// ekran lista cwiczen
 import { router } from 'expo-router';
 import { FlatList, Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import { exercises } from '../data/exercises';
