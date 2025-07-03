@@ -1,0 +1,51 @@
+//baza cwiczen
+export const exercises = [
+  {
+    id: '1',
+    name: 'Wyciskanie sztangi na ławce',
+    description: 'Ćwiczenie klatki piersiowej i tricepsów.',
+    series: '4 serie po 8–12 powtórzeń',
+    image: 'https://images.unsplash.com/photo-1605296867304-46d5465a13f1?auto=format&fit=crop&w=800&q=80',
+    gif: 'https://images.unsplash.com/photo-1605296867304-46d5465a13f1?auto=format&fit=crop&w=800&q=80',
+  },
+  {
+    id: '2',
+    name: 'Martwy ciąg',
+    description: 'Ćwiczenie pleców, nóg i pośladków.',
+    series: '4 serie po 6–10 powtórzeń',
+    image: 'https://images.unsplash.com/photo-1574685646244-144dda62d4b5?auto=format&fit=crop&w=800&q=80',
+    gif: 'https://images.unsplash.com/photo-1574685646244-144dda62d4b5?auto=format&fit=crop&w=800&q=80',
+  },
+  {
+    id: '3',
+    name: 'Przysiady ze sztangą',
+    description: 'Ćwiczenie nóg, pośladków i core.',
+    series: '4 serie po 8–12 powtórzeń',
+    image: 'https://images.unsplash.com/photo-1558605246-750a7108b1fa?auto=format&fit=crop&w=800&q=80',
+    gif: 'https://images.unsplash.com/photo-1558605246-750a7108b1fa?auto=format&fit=crop&w=800&q=80',
+  },
+  {
+    id: '4',
+    name: 'Podciąganie na drążku',
+    description: 'Ćwiczenie pleców i bicepsów.',
+    series: '3 serie maksymalna liczba powtórzeń',
+    image: 'https://images.unsplash.com/photo-1579758629931-2c7a84d14baf?auto=format&fit=crop&w=800&q=80',
+    gif: 'https://images.unsplash.com/photo-1579758629931-2c7a84d14baf?auto=format&fit=crop&w=800&q=80',
+  },
+  {
+    id: '5',
+    name: 'Uginanie ramion ze sztangą',
+    description: 'Izolacja bicepsów.',
+    series: '4 serie po 10–15 powtórzeń',
+    image: 'https://images.unsplash.com/photo-1582240462508-0ed1e20d1e24?auto=format&fit=crop&w=800&q=80',
+    gif: 'https://images.unsplash.com/photo-1582240462508-0ed1e20d1e24?auto=format&fit=crop&w=800&q=80',
+  },
+  {
+    id: '6',
+    name: 'Wyciskanie żołnierskie',
+    description: 'Ćwiczenie barków i tricepsów.',
+    series: '4 serie po 8–12 powtórzeń',
+    image: 'https://images.unsplash.com/photo-1534430480875-8214c4c0e77c?auto=format&fit=crop&w=800&q=80',
+    gif: 'https://images.unsplash.com/photo-1534430480875-8214c4c0e77c?auto=format&fit=crop&w=800&q=80',
+  },
+];
