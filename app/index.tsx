@@ -1,7 +1,6 @@
-//ekran strona główna
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { router } from 'expo-router';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 
 export default function HomeScreen() {
   const handleLogout = async () => {
@@ -13,15 +12,17 @@ export default function HomeScreen() {
     <View style={styles.container}>
       <Text style={styles.title}>Witaj w GymBro!</Text>
 
-      <View style={{ marginVertical: 20 }}>
-        <Button title="Wyszukaj ćwiczenie" onPress={() => router.push('/exercise')} />
-      </View>
+      <Pressable style={styles.button} onPress={() => router.push('/exercise')}>
+        <Text style={styles.buttonText}>Wyszukaj ćwiczenie</Text>
+      </Pressable>
 
-      <View style={{ marginBottom: 20 }}>
-        <Button title="Ulubione ćwiczenia" onPress={() => router.push('/favorites')} />
-      </View>
+      <Pressable style={styles.button} onPress={() => router.push('/favorites')}>
+        <Text style={styles.buttonText}>Ulubione ćwiczenia</Text>
+      </Pressable>
 
-      <Button title="Wyloguj się" color="red" onPress={handleLogout} />
+      <Pressable style={[styles.button, styles.logout]} onPress={handleLogout}>
+        <Text style={styles.buttonText}>Wyloguj się</Text>
+      </Pressable>
     </View>
   );
 }
@@ -29,13 +30,29 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
     padding: 20,
+    justifyContent: 'center',
   },
   title: {
-    fontSize: 24,
+    color: '#FFFFFF',
+    fontSize: 32,
     fontWeight: 'bold',
     textAlign: 'center',
-    marginBottom: 30,
+    marginBottom: 40,
+  },
+  button: {
+    backgroundColor: '#505050',
+    paddingVertical: 14,
+    borderRadius: 8,
+    marginBottom: 16,
+    alignItems: 'center',
+  },
+  logout: {
+    backgroundColor: '#7A0000',
+  },
+  buttonText: {
+    color: '#FFFFFF',
+    fontSize: 18,
+    fontWeight: '600',
   },
 });

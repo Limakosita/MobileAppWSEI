@@ -6,13 +6,12 @@ import { exercises } from '../data/exercises';
 
 export default function FavoritesScreen() {
   const { favorites } = useContext(FavoritesContext);
-
   const favoriteExercises = exercises.filter((ex) => favorites.includes(ex.id));
 
   if (favoriteExercises.length === 0) {
     return (
-      <View style={styles.container}>
-        <Text>Brak ulubionych ćwiczeń</Text>
+      <View style={styles.emptyContainer}>
+        <Text style={styles.emptyText}>Brak ulubionych ćwiczeń</Text>
       </View>
     );
   }
@@ -23,7 +22,10 @@ export default function FavoritesScreen() {
         data={favoriteExercises}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
-          <Pressable style={styles.card} onPress={() => router.push(`./exercise/${item.id}`)}>
+          <Pressable
+            style={styles.card}
+            onPress={() => router.push(`/exercise/${item.id}`)}
+          >
             <Image source={{ uri: item.image }} style={styles.image} />
             <Text style={styles.name}>{item.name}</Text>
           </Pressable>
@@ -34,14 +36,19 @@ export default function FavoritesScreen() {
 }
 
 const styles = StyleSheet.create({
+  emptyContainer: { flex: 1, justifyContent: 'center', alignItems: 'center' },
+  emptyText: { color: '#CCCCCC', fontSize: 18 },
   container: { flex: 1, padding: 16 },
   card: {
-    padding: 12,
-    backgroundColor: '#eee',
+    backgroundColor: '#3E3E3E',
     borderRadius: 8,
-    marginBottom: 12,
-    alignItems: 'center',
+    marginBottom: 16,
+    overflow: 'hidden',
   },
-  image: { width: 200, height: 120, borderRadius: 6, marginBottom: 6 },
-  name: { fontSize: 18 },
+  image: { width: '100%', height: 120 },
+  name: {
+    color: '#FFFFFF',
+    fontSize: 18,
+    padding: 12,
+  },
 });
